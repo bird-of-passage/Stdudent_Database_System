@@ -19,3 +19,45 @@ struct student
         long tele_number;
     } address_info;
 };
+
+struct student student_info[MAX];
+
+void entry(void);
+void init_list(void);
+int find_free(void);
+void find_data(void);
+char menu_select();
+void std_info();
+void menu(int x1, int y1, int x2, int y2);
+
+void line();
+void line1();
+
+void main()
+{
+    char choice;
+    clrscr();
+    init_list();
+
+    for (;;)
+    {
+        textcolor(7);
+        menu(2, 2, 80, 24);
+        choice = menu_select();
+        _setcursortype(_NORMALCURSOR);
+        switch (choice)
+        {
+        case '1':
+            entry();
+            break;
+        case '2':
+            std_info();
+            break;
+        case '3':
+            find_data();
+            break;
+        case '4':
+            exit(0);
+        }
+    }
+}
